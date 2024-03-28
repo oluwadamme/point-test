@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:point_test/src/components/apartment_item.dart';
 import 'package:point_test/src/components/scale_widget.dart';
 import 'package:point_test/src/utils/app_colors.dart';
 import 'package:point_test/src/utils/spacing_util.dart';
@@ -14,21 +14,17 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
   late AnimationController _controller3;
-  late AnimationController _controller;
-  late Animation<double> _opacity;
+
   late Animation<double> _size;
   final duration3 = const Duration(milliseconds: 700);
-  final duration = const Duration(seconds: 1);
+
   @override
   void initState() {
     super.initState();
     _controller3 = AnimationController(duration: duration3, vsync: this);
-    _controller = AnimationController(duration: duration, vsync: this);
 
     _size = Tween<double>(begin: 0.0, end: 1.0).animate(_controller3);
-    _opacity = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
     _controller3.forward();
-    _controller.forward();
   }
 
   bool showPrice = true;
@@ -77,159 +73,27 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
               ),
               Align(
                 alignment: const Alignment(-0.4, -.3),
-                child: ScaleTransition(
-                  alignment: Alignment.bottomLeft,
-                  scale: _opacity,
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 500),
-                    padding: const EdgeInsets.all(10),
-                    decoration: const BoxDecoration(
-                      color: AppColors.orange,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10),
-                        bottomRight: Radius.circular(10),
-                      ),
-                    ),
-                    width: showPrice ? 80 : 45,
-                    child: showPrice
-                        ? Text(
-                            "13,3mn P",
-                            style: normalStyle(12, Colors.white),
-                          )
-                        : const Icon(Icons.apartment, color: Colors.white),
-                  ),
-                ),
+                child: ApartmentItem(price: "14,3mn P", showPrice: showPrice),
               ),
               Align(
                 alignment: const Alignment(0.6, -.2),
-                child: ScaleTransition(
-                  alignment: Alignment.bottomLeft,
-                  scale: _opacity,
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 500),
-                    padding: const EdgeInsets.all(10),
-                    decoration: const BoxDecoration(
-                      color: AppColors.orange,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10),
-                        bottomRight: Radius.circular(10),
-                      ),
-                    ),
-                    width: showPrice ? 80 : 45,
-                    child: showPrice
-                        ? Text(
-                            "14,3mn P",
-                            style: normalStyle(12, Colors.white),
-                          )
-                        : const Icon(Icons.apartment, color: Colors.white),
-                  ),
-                ),
+                child: ApartmentItem(price: "14,3mn P", showPrice: showPrice),
               ),
               Align(
                 alignment: const Alignment(-0.4, -.14),
-                child: ScaleTransition(
-                  alignment: Alignment.bottomLeft,
-                  scale: _opacity,
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 500),
-                    padding: const EdgeInsets.all(10),
-                    decoration: const BoxDecoration(
-                      color: AppColors.orange,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10),
-                        bottomRight: Radius.circular(10),
-                      ),
-                    ),
-                    width: showPrice ? 80 : 45,
-                    child: showPrice
-                        ? Text(
-                            "3,3mn P",
-                            style: normalStyle(12, Colors.white),
-                          )
-                        : const Icon(Icons.apartment, color: Colors.white),
-                  ),
-                ),
+                child: ApartmentItem(price: "3,3mn P", showPrice: showPrice),
               ),
               Align(
                 alignment: const Alignment(-0.6, .35),
-                child: ScaleTransition(
-                  alignment: Alignment.bottomLeft,
-                  scale: _opacity,
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 500),
-                    padding: const EdgeInsets.all(10),
-                    decoration: const BoxDecoration(
-                      color: AppColors.orange,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10),
-                        bottomRight: Radius.circular(10),
-                      ),
-                    ),
-                    width: showPrice ? 80 : 45,
-                    child: showPrice
-                        ? Text(
-                            "10,3mn P",
-                            style: normalStyle(12, Colors.white),
-                          )
-                        : const Icon(Icons.apartment, color: Colors.white),
-                  ),
-                ),
+                child: ApartmentItem(price: "23,3mn P", showPrice: showPrice),
               ),
               Align(
                 alignment: const Alignment(0.6, .2),
-                child: ScaleTransition(
-                  alignment: Alignment.bottomLeft,
-                  scale: _opacity,
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 500),
-                    padding: const EdgeInsets.all(10),
-                    decoration: const BoxDecoration(
-                      color: AppColors.orange,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10),
-                        bottomRight: Radius.circular(10),
-                      ),
-                    ),
-                    width: showPrice ? 80 : 45,
-                    child: showPrice
-                        ? Text(
-                            "13,0mn P",
-                            style: normalStyle(12, Colors.white),
-                          )
-                        : const Icon(Icons.apartment, color: Colors.white),
-                  ),
-                ),
+                child: ApartmentItem(price: "13,0mn P", showPrice: showPrice),
               ),
               Align(
                 alignment: const Alignment(0.4, .5),
-                child: ScaleTransition(
-                  alignment: Alignment.bottomLeft,
-                  scale: _opacity,
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 500),
-                    padding: const EdgeInsets.all(10),
-                    decoration: const BoxDecoration(
-                      color: AppColors.orange,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10),
-                        bottomRight: Radius.circular(10),
-                      ),
-                    ),
-                    width: showPrice ? 80 : 45,
-                    child: showPrice
-                        ? Text(
-                            "13,3mn P",
-                            style: normalStyle(12, Colors.white),
-                          )
-                        : const Icon(Icons.apartment, color: Colors.white),
-                  ),
-                ),
+                child: ApartmentItem(price: "13,3mn P", showPrice: showPrice),
               ),
               Align(
                 alignment: const Alignment(-.8, .75),
@@ -240,7 +104,7 @@ class _MapPageState extends State<MapPage> with TickerProviderStateMixin {
                     children: [
                       PopupMenuButton<String>(
                         color: Colors.white,
-                        offset: const Offset(4, 4),
+                        offset: const Offset(0, -170),
                         position: PopupMenuPosition.over,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                         itemBuilder: (context) => [
